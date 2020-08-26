@@ -17,25 +17,24 @@ namespace LabEncapsulation
             {
                 Console.WriteLine("Add person info (firstName lastName Age)");
                 var cmdArgs = Console.ReadLine().Split();
+                var person = new Person(cmdArgs[0],
 
-                var person = new Person(cmdArgs[0], cmdArgs[1], int.Parse(cmdArgs[2]));
+                            cmdArgs[1],
+
+                            int.Parse(cmdArgs[2]),
+
+                            decimal.Parse(cmdArgs[3]));
+
 
                 persons.Add(person);
 
             }
 
-            persons.OrderBy(p => p.FirstName)
+            var bonus = decimal.Parse(Console.ReadLine());
 
-                   .ThenBy(p => p.Age)
+            persons.ForEach(p => p.IncreaseSalary(bonus));
 
-                   .ToList()
-
-                   .ForEach(p => Console.WriteLine(p.ToString()));
-
-            //foreach (var p in persons)
-            //{
-            //    Console.WriteLine(p.ToString());
-            //}
+            persons.ForEach(p => Console.WriteLine(p.ToString()));
         }
     }
 }
