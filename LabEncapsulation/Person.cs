@@ -40,7 +40,7 @@ namespace LabEncapsulation
             {
                 if (value.Length < 3)
                     throw new ArgumentException("Last name cannot contain fewer than 3 symbols!");
-                _firstName = value;
+                _lastName = value;
             }
         }
         public int Age

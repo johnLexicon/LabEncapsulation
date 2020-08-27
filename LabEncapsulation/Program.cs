@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace LabEncapsulation
 {
@@ -23,6 +22,7 @@ namespace LabEncapsulation
                     cmdArgs[1],
                     int.Parse(cmdArgs[2]),
                     decimal.Parse(cmdArgs[3]));
+
                     persons.Add(person);
                 }
                 catch (ArgumentException e)
@@ -37,12 +37,11 @@ namespace LabEncapsulation
                 return;
             }
 
-            System.Console.Write("Add bonus: ");
-            var bonus = decimal.Parse(Console.ReadLine());
-
-            persons.ForEach(p => p.IncreaseSalary(bonus));
-
-            persons.ForEach(p => Console.WriteLine(p.ToString()));
+            var team = new Team("Lexicon");
+            foreach (var person in persons)
+            {
+                team.AddPlayer(person);
+            }
         }
     }
 }
