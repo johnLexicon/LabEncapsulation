@@ -17,17 +17,24 @@ namespace LabEncapsulation
             {
                 Console.WriteLine("Add person info (firstName lastName Age Salary)");
                 var cmdArgs = Console.ReadLine().Split();
-                var person = new Person(cmdArgs[0],
+                try
+                {
+                    var person = new Person(cmdArgs[0],
+                    cmdArgs[1],
+                    int.Parse(cmdArgs[2]),
+                    decimal.Parse(cmdArgs[3]));
+                    persons.Add(person);
+                }
+                catch (ArgumentException e)
+                {
+                    System.Console.WriteLine(e.Message);
+                }
 
-                            cmdArgs[1],
+            }
 
-                            int.Parse(cmdArgs[2]),
-
-                            decimal.Parse(cmdArgs[3]));
-
-
-                persons.Add(person);
-
+            if (persons.Count == 0)
+            {
+                return;
             }
 
             System.Console.Write("Add bonus: ");
