@@ -8,14 +8,14 @@ namespace LabEncapsulation
     {
         static void Main(string[] args)
         {
-            var lines = 5;
+            var lines = 2;
 
             var persons = new List<Person>();
 
             for (int i = 0; i < lines; i++)
 
             {
-                Console.WriteLine("Add person info (firstName lastName Age)");
+                Console.WriteLine("Add person info (firstName lastName Age Salary)");
                 var cmdArgs = Console.ReadLine().Split();
                 var person = new Person(cmdArgs[0],
 
@@ -30,6 +30,7 @@ namespace LabEncapsulation
 
             }
 
+            System.Console.Write("Add bonus: ");
             var bonus = decimal.Parse(Console.ReadLine());
 
             persons.ForEach(p => p.IncreaseSalary(bonus));
